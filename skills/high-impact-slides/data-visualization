@@ -1,0 +1,234 @@
+# Data Visualization Reference — High-Impact Slides
+
+## Core principle
+
+A chart's job is to make one point obvious. If the audience has to study it to understand it, the chart is doing too much. Every chart choice, color choice, and label choice should serve the single insight stated in the slide headline.
+
+---
+
+## Chart selection guide
+
+Pick the chart type based on what the data is *saying*, not what looks interesting.
+
+| What the data shows | Chart type | Notes |
+|---|---|---|
+| One important number | **Stat callout** | Always prefer this over a chart when there's a single metric |
+| Change over time (1 series) | **Line chart** | Clean, no fill, accent color line |
+| Change over time (2–3 series) | **Line chart** | Accent = primary series, neutral grays for others |
+| Comparing categories | **Bar / column chart** | Horizontal bars for long labels, vertical for time-based categories |
+| Part of a whole (2–4 parts) | **Donut chart** | Only when proportions are the story. Max 4 segments. |
+| Part of a whole (5+ parts) | **Bar chart** | Pie/donut with 5+ segments is unreadable — use bars instead |
+| Two variables, correlation | **Scatter plot** | Use sparingly; label key data points only |
+| Structured comparison | **Table** | Only when exact numbers matter more than the visual trend |
+
+**When to use a stat callout instead of a chart:**
+- There is one number that makes the whole argument
+- The trend is already obvious from context (no need to show the full series)
+- The slide's emotional job is to land a single punch
+
+---
+
+## Framing rule: insight-led vs. evidence-led
+
+Decide per slide which mode the chart is in:
+
+**Insight-led** — headline states the conclusion, chart proves it.
+- Headline: "Co-working spaces fill 3× faster than traditional offices"
+- Chart: shows occupancy rate comparison
+- Use when: the audience needs convincing, the point is non-obvious
+
+**Evidence-led** — chart is the story, headline names what to look at.
+- Headline: "Monthly active users, Jan–Dec 2024"
+- Chart: line showing trend
+- Use when: audience is analytical, they want to draw their own conclusion, or the data is presented to a panel/committee
+
+Default to **insight-led** for pitches and academic presentations. Use **evidence-led** for data reports and analyst audiences.
+
+---
+
+## Chart styling rules (warm neutral theme)
+
+All charts must feel like part of the same deck — same palette, same weight, same quiet confidence.
+
+### Colors
+
+- **Primary data series**: deck accent color (e.g. Terracotta `#B85042`)
+- **Secondary data series**: warm gray `#A89F96`
+- **Tertiary data series**: light sand `#C8BFB4`
+- **Never** use more than 3 series on one chart
+- **Never** use colors outside the deck palette on charts
+- **Highlight bar/segment**: accent color. All others: warm gray. This draws the eye to the point.
+- **Chart background**: transparent (inherits slide background `#FAFAF8`)
+- **Gridlines**: `#E0DBD4`, 0.5pt, horizontal only (no vertical gridlines)
+- **Axis lines**: `#D6D1C8`, 0.5pt
+
+### Typography on charts
+
+- Axis labels: Calibri 10pt, warm gray `#7A7874`
+- Data labels (if shown): Calibri 10pt, warm charcoal `#2C2C2A`
+- Chart title: never add a chart title — the slide headline IS the title
+- Legend: Calibri 10pt, placed below the chart, not beside it
+
+### What to strip out
+
+Remove all of these — they add visual noise without adding information:
+- Chart border / frame
+- Background fill on the chart area
+- 3D effects of any kind
+- Shadow effects
+- Gridlines on both axes (horizontal only)
+- Chart title (use slide headline instead)
+- Excessive data labels (label key points only, not every data point)
+
+---
+
+## Stat callout styling
+
+Use when one number is the entire point of the slide.
+
+**Structure:**
+- Big number: Palatino 60–72pt, accent color
+- Unit or context label: Calibri 12pt, warm gray, directly below
+- One-line supporting statement: Calibri 14pt, warm charcoal, below the label
+
+**Example layout:**
+```
+        3×
+   faster occupancy
+Co-working vs. traditional office, Metro Manila 2024
+```
+
+**Rules:**
+- Center the callout block vertically and horizontally on the slide
+- Never put two stat callouts side-by-side on the same slide — that's two slides
+- If there are 2–3 related stats, use the "stat row" layout: three callouts in a row, smaller (48pt), all in accent color, with thin warm gray dividers between them
+
+---
+
+## Table styling
+
+Use only when exact numbers matter more than the visual trend.
+
+- Header row: warm cream background `#F2EFE9`, warm charcoal text, Calibri 11pt bold
+- Data rows: alternating `#FAFAF8` and `#F2EFE9`
+- Row borders: `#D6D1C8`, 0.5pt horizontal only (no vertical cell borders)
+- Key cell highlight: accent color background, white text — use for one cell only (the point)
+- Font: Calibri 11pt for data, 10pt for footnotes
+- Never use more columns than the slide width comfortably holds (max ~6 columns at standard slide size)
+
+---
+
+## pptxgenjs implementation patterns
+
+When building charts in pptxgenjs, use these settings to match the theme.
+
+### Line chart
+```javascript
+slide.addChart(pptx.ChartType.line, data, {
+  x: 0.6, y: 1.2, w: 5.5, h: 3.5,
+  lineDataSymbol: 'none',
+  lineSmooth: false,
+  chartColors: ['B85042', 'A89F96'], // accent first, gray for secondary
+  showLegend: true,
+  legendPos: 'b',
+  legendFontSize: 10,
+  legendColor: '7A7874',
+  valAxisLineColor: 'D6D1C8',
+  catAxisLineColor: 'D6D1C8',
+  valGridLine: { style: 'solid', color: 'E0DBD4', pt: 0.5 },
+  catGridLine: { style: 'none' },
+  showValue: false,
+  dataLabelFontSize: 10,
+  dataLabelColor: '2C2C2A',
+  valAxisLabelColor: '7A7874',
+  catAxisLabelColor: '7A7874',
+  valAxisLabelFontSize: 10,
+  catAxisLabelFontSize: 10,
+});
+```
+
+### Bar / column chart
+```javascript
+slide.addChart(pptx.ChartType.bar, data, {
+  x: 0.6, y: 1.2, w: 5.5, h: 3.5,
+  barDir: 'col', // use 'bar' for horizontal
+  barGapWidthPct: 50,
+  chartColors: ['B85042'], // single accent; add 'A89F96' for second series
+  showLegend: false,
+  valGridLine: { style: 'solid', color: 'E0DBD4', pt: 0.5 },
+  catGridLine: { style: 'none' },
+  valAxisLineColor: 'D6D1C8',
+  catAxisLineColor: 'D6D1C8',
+  showValue: true,
+  dataLabelFontSize: 10,
+  dataLabelColor: '2C2C2A',
+  dataLabelPosition: 'outEnd',
+  valAxisLabelColor: '7A7874',
+  catAxisLabelColor: '7A7874',
+  valAxisLabelFontSize: 10,
+  catAxisLabelFontSize: 10,
+});
+```
+
+### Donut chart
+```javascript
+slide.addChart(pptx.ChartType.doughnut, data, {
+  x: 1.5, y: 1.0, w: 4.0, h: 4.0,
+  holeSize: 60,
+  chartColors: ['B85042', 'A89F96', 'C8BFB4', 'E0DBD4'], // accent + neutrals
+  showLegend: true,
+  legendPos: 'b',
+  legendFontSize: 10,
+  legendColor: '7A7874',
+  showValue: true,
+  dataLabelFontSize: 11,
+  dataLabelColor: 'FAFAF8',
+  dataLabelPosition: 'ctr',
+});
+```
+
+### Stat callout (text-based, not a chart object)
+```javascript
+// Big number
+slide.addText('3×', {
+  x: 1.0, y: 1.5, w: 8.0, h: 1.8,
+  fontSize: 72,
+  fontFace: 'Palatino',
+  color: 'B85042', // accent color
+  align: 'center',
+  bold: false,
+});
+// Label
+slide.addText('faster occupancy', {
+  x: 1.0, y: 3.2, w: 8.0, h: 0.5,
+  fontSize: 12,
+  fontFace: 'Calibri',
+  color: '7A7874',
+  align: 'center',
+});
+// Supporting statement
+slide.addText('Co-working vs. traditional office, Metro Manila 2024', {
+  x: 1.0, y: 3.7, w: 8.0, h: 0.4,
+  fontSize: 14,
+  fontFace: 'Calibri',
+  color: '2C2C2A',
+  align: 'center',
+});
+```
+
+---
+
+## Data slide QA checklist
+
+Before finalizing any slide with a chart or stat:
+
+- [ ] Headline states the insight, not just the topic
+- [ ] Chart type matches what the data is saying (see selection guide)
+- [ ] Only accent color + warm neutrals used — no other colors introduced
+- [ ] Chart title removed (slide headline does that job)
+- [ ] Vertical gridlines removed
+- [ ] No 3D effects, shadows, or borders on the chart
+- [ ] Data labels shown only on key points (not every point)
+- [ ] Legend placed below chart, not beside it
+- [ ] All axis labels readable at 10pt
+- [ ] Source/footnote added if data is from an external source (Calibri 10pt, warm gray, bottom of slide)
