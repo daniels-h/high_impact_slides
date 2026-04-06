@@ -18,9 +18,9 @@ The skill operates in three mandatory phases:
 3. **Phase 2+ - Design System & Execution**: Applies the strict design philosophy and chart styling rules, then uses the standard `pptx` skill to generate the final file.
 
 ## Core Design Principles
-* [cite_start]**Cohesion**: The design supports the content quietly, ensuring every slide looks like part of the same family[cite: 5].
-* [cite_start]**Restraint**: Limits accent colors to a maximum of 4 to 6 uses per deck to prevent visual competition[cite: 68].
-* [cite_start]**Purposeful Space**: Every zone on a slide must have a declared purpose, actively avoiding accidental white space[cite: 48].
+* **Cohesion**: The design supports the content quietly, ensuring every slide looks like part of the same family[cite: 5].
+* **Restraint**: Limits accent colors to a maximum of 4 to 6 uses per deck to prevent visual competition[cite: 68].
+* **Purposeful Space**: Every zone on a slide must have a declared purpose, actively avoiding accidental white space[cite: 48].
 
 ## Reference Files
 * `SKILL.md`: The core operational logic, gating rules, and prompt instructions.
