@@ -7,8 +7,8 @@ This skill produces presentations that are clear, cohesive, and visually calm. I
 
 ## Key Features
 * **Story-Driven Structure**: Organizes content using proven narrative frameworks like SCR (Situation, Complication, Resolution) or SCQA.
-* [cite_start]**Warm-Neutral Theme**: Employs a cohesive design system using soft whites  [cite: 8], warm creams [cite: 9], and a single carefully chosen accent color[cite: 13].
-* [cite_start]**Insight-Led Data Visualization**: Ensures charts make one point obvious [cite: 70][cite_start], stripping out visual noise and relying on clean geometric icons[cite: 31].
+* [cite_start]**Warm-Neutral Theme**: Employs a cohesive design system using soft whites, warm creams, and a single carefully chosen accent color.
+* [cite_start]**Insight-Led Data Visualization**: Ensures charts make one point obvious[cite_start], stripping out visual noise and relying on clean geometric icons.
 * **Gate-Driven Process**: Pauses for explicit user confirmation before moving between strategy, data collection, and slide generation to prevent hallucinated content.
 
 ## How It Works
