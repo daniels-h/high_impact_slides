@@ -1,0 +1,295 @@
+# Theme Reference — High-Impact Slides
+
+## Design philosophy
+
+Clean, warm, cohesive. Every slide should feel like it belongs to the same family.
+No visual competition. The content speaks; the design supports it quietly.
+
+**The test**: If you removed all the text, would the slides still look like one unified deck?
+If yes, the design is working. If each slide looks different, something is wrong.
+
+---
+
+## Color palette
+
+### Base (always used)
+
+| Role | Color | Hex | Use |
+|---|---|---|---|
+| Slide background | Soft white | `#FAFAF8` | All slide backgrounds |
+| Surface / card | Warm cream | `#F2EFE9` | Content blocks, callout boxes |
+| Subtle surface | Sand | `#E8E3DA` | Dividers, table rows, secondary cards |
+| Body text | Warm charcoal | `#2C2C2A` | All body text |
+| Secondary text | Warm gray | `#7A7874` | Captions, labels, footnotes |
+| Divider / border | Light warm gray | `#D6D1C8` | Lines, borders, separators |
+
+### Accent (one per deck, used sparingly)
+
+Pick ONE accent at the start of each deck based on the topic. Use it on:
+- The single most important stat or number on a data slide
+- The CTA button or call-to-action text
+- One section divider or highlight bar (not on every slide)
+- The hook slide background (optional, if using a colored cover)
+
+**Never use the accent on body text, headers, or decorative elements.**
+
+| Accent option | Hex | Best for |
+|---|---|---|
+| Terracotta | `#B85042` | Business pitch, marketing, energy |
+| Slate blue | `#4A6580` | Analytics, data, finance, academic |
+| Sage green | `#5C7A6B` | Sustainability, wellness, lifestyle |
+| Dusty mauve | `#8A6070` | Creative, brand, consumer product |
+| Deep amber | `#9C6B2E` | Premium, hospitality, food |
+
+If none fits, default to **Terracotta** (`#B85042`).
+
+### What to never do
+
+- Never use two accent colors in the same deck
+- Never use the accent color at full saturation on backgrounds (it becomes the dominant color)
+- Never use bright primaries (pure red, pure blue, lime green) anywhere
+- Never use white text on a light background — always warm charcoal on light surfaces
+- Never use drop shadows or glows — they break the clean aesthetic
+
+---
+
+## Typography
+
+### Font pairing
+
+| Element | Font | Size | Weight |
+|---|---|---|---|
+| Slide title / headline | Palatino (or Georgia) | 36–40pt | Regular (not bold) — elegance over aggression |
+| Section label | Calibri | 11pt | Regular, uppercase, tracked (letter-spacing: 2pt) |
+| Body text | Calibri | 14–16pt | Regular |
+| Stat callout (big number) | Palatino | 52–64pt | Regular |
+| Caption / footnote | Calibri | 10pt | Regular, warm gray |
+| CTA text | Calibri | 16pt | Bold |
+
+### Typography rules
+
+- Headline = message, not topic. It should be a complete thought.
+- Headlines are sentence case, not title case: "Why co-working beats leasing" not "Why Co-Working Beats Leasing"
+- Never center body text — left-align all paragraphs and bullets
+- Center only: slide titles on hook/cover slides, large stat callouts, CTA text
+- Max 2 font sizes per slide (title + body, or stat + caption)
+- No bold in body text — use a new slide instead of bolding for emphasis
+
+---
+
+## Layout patterns
+
+### Slide structure
+
+All slides share the same grid:
+- Left margin: 0.6"
+- Right margin: 0.6"
+- Top margin: 0.5" (title zone)
+- Bottom margin: 0.4" (footer zone)
+- Content area: between title and footer
+
+**Footer** (every slide except hook/cover):
+- Slide number: bottom right, 10pt warm gray
+- Deck name or logo: bottom left, 10pt warm gray (optional)
+- Thin warm gray line above footer: `#D6D1C8`, 0.5pt
+
+### Layout options by slide type
+
+**Full-bleed text (hook/cover)**
+- Background: accent color OR warm cream `#F2EFE9`
+- One large headline centered, Palatino 44pt
+- Subtitle below in Calibri 16pt warm gray
+- No other elements
+
+**Two-column (text left, visual right)**
+- Left 55%: headline + body text or bullets
+- Right 45%: chart, image placeholder, or large stat
+- 0.3" gap between columns
+
+**Stat callout (data slide)**
+- Large number centered or left-aligned: 60pt Palatino, accent color
+- Label below: 12pt Calibri warm gray
+- Supporting text below: 14pt Calibri warm charcoal
+- Optional: thin accent-colored left border on the stat block (2pt, accent color)
+
+**Icon + text rows**
+- 3–4 rows, each: small icon placeholder (24×24pt warm gray square) + bold label + one-line description
+- Consistent vertical spacing: 0.4" between rows
+
+**Section divider**
+- Warm cream background `#F2EFE9`
+- Section number: 11pt Calibri, uppercase, warm gray, tracked
+- Section title: 32pt Palatino, warm charcoal, left-aligned
+- Optional: thin horizontal accent line above title (1pt, accent color, left-aligned, 1" wide)
+
+---
+
+## Icon system
+
+### When icons appear
+
+- **Hook / cover slides**: no icons — keep clean
+- **Data / chart slides**: no icons — the chart is the visual
+- **All other slides** (insight, proof, process, CTA, section divider): icons are required, not optional
+
+### Purpose
+
+Icons are cognitive anchors — the audience builds a mental image before reading a word. Every icon must be immediately legible at a glance. If you have to think about what it means, it's the wrong icon.
+
+### Style: geometric shapes in pptxgenjs
+
+All icons are built from pptxgenjs primitives — rectangles, circles, lines, arcs — not Unicode characters or image files. This gives full color and sizing control and guarantees .pptx compatibility.
+
+**Design rules:**
+- Warm gray `#7A7874` fill, no stroke — icons recede behind content, they don't compete
+- Single-color only — never two-tone or filled + outlined
+- Minimal geometry — 2–4 shapes max per icon. If it needs more, simplify the concept
+- Consistent sizing within a slide — all inline icons the same size, all anchor icons the same size
+
+### Icon sizing by placement
+
+| Placement | Size | Position |
+|---|---|---|
+| Anchor (one large icon per slide) | 1.2" × 1.2" | Top-right corner, 0.5" from edges, or right column center |
+| Inline (beside each bullet/row) | 0.25" × 0.25" | Left of text, vertically centered on first line |
+| Background (decorative, faint) | 2.5" × 2.5" | Behind content, centered or offset, 10% opacity |
+
+### Icon vocabulary — approved shapes and their meanings
+
+Build these from primitives. These are the approved set — don't invent new ones without a clear rationale.
+
+| Concept | Shape construction |
+|---|---|
+| Growth / increase | Triangle pointing up (filled) |
+| Decline / decrease | Triangle pointing down (filled) |
+| Completion / success | Circle + line at center (minimal checkmark) |
+| Connection / network | Three small circles connected by lines |
+| Time / process | Circle with a line at 12 o'clock (minimal clock) |
+| People / team | Two overlapping circles (larger + smaller) |
+| Location / place | Circle with small filled circle inside (top-down pin) |
+| Data / insight | Three vertical bars of increasing height |
+| Money / value | Rounded rectangle + small rectangle inside (card) |
+| Protection / trust | Pentagon / shield shape |
+| Document / content | Rectangle with two horizontal lines inside |
+| Alert / important | Triangle with small circle at center |
+
+### pptxgenjs icon implementation
+
+Icons are drawn as grouped shapes. Declare `x`, `y`, `w`, `h` explicitly — never rely on defaults.
+
+**Anchor icon — growth triangle (1.2" × 1.2", top-right):**
+```javascript
+const iconX = 8.5; // 10" width - 0.6" margin - 1.2" - 0.1" buffer
+const iconY = 0.6;
+slide.addShape(pptx.ShapeType.triangle, {
+  x: iconX, y: iconY, w: 1.2, h: 1.0,
+  fill: { color: '7A7874' },
+  line: { type: 'none' },
+});
+```
+
+**Inline icon — dot marker (0.25" × 0.25", left of bullet):**
+```javascript
+slide.addShape(pptx.ShapeType.ellipse, {
+  x: bulletX, y: bulletY + 0.02, w: 0.2, h: 0.2,
+  fill: { color: 'E8E3DA' },
+  line: { type: 'none' },
+});
+slide.addShape(pptx.ShapeType.ellipse, {
+  x: bulletX + 0.05, y: bulletY + 0.07, w: 0.1, h: 0.1,
+  fill: { color: '7A7874' },
+  line: { type: 'none' },
+});
+```
+
+**Background shape — faint circle (2.5" × 2.5", 10% opacity):**
+```javascript
+slide.addShape(pptx.ShapeType.ellipse, {
+  x: 6.5, y: 1.5, w: 2.5, h: 2.5,
+  fill: { color: '7A7874', transparency: 90 },
+  line: { type: 'none' },
+});
+```
+
+---
+
+## Space utilization
+
+### The rule
+
+**Every zone on every slide must have a declared purpose.** Accidental white space — content floating in the middle of a slide with empty regions around it — is a production error, not a design choice.
+
+The three zones of every slide:
+- **Title zone**: top 0.9" — headline always fills this
+- **Body zone**: 0.9" to 6.3" — must be fully and intentionally used
+- **Footer zone**: bottom 0.4" — slide number + deck name
+
+### Space-filling hierarchy
+
+When body zone space remains after placing primary content, fill in this order:
+
+1. **Scale up** — increase the primary visual (chart taller, stat number larger, icon bigger). Do this first.
+2. **Expand text** — increase font size toward the upper bound (16pt body, 40pt headline). Never exceed defined maximums.
+3. **Add supporting icon** — if no icon is present and the slide isn't a data slide, add one now.
+4. **Add a supporting element** — a pull quote, secondary stat, or supporting data point the user provided.
+5. **Add a background geometric element** — a large warm gray shape at 6–8% opacity as a compositional anchor.
+
+### Never fill space with:
+- Extra bullets that dilute the one-message rule
+- Repeated information already in the headline
+- Decorative borders or frames around the whole slide
+- Placeholder labels like "[image here]"
+
+### Space audit — required before finalizing each slide
+
+Check every slide before marking it done:
+
+- Is any zone (title / body / footer) empty or visually underweight?
+- Does the body zone have a clear visual center of gravity?
+- If text is left-heavy, is the right side intentionally used (icon, chart, stat, background shape)?
+- If single-column, does content scale to fill vertical space?
+- Does removing the text leave the slide looking intentionally designed — or just empty?
+
+Any gap found = fix before moving to the next slide.
+
+### Minimum fill expectations by slide type
+
+| Slide type | Body zone expectation |
+|---|---|
+| Hook | Headline large enough to dominate; subtitle below; nothing else |
+| Insight | Two-column minimum: text left, anchor icon or visual right |
+| Data | Chart or stat fills at least 60% of body zone height |
+| Proof | Icon + text rows fill full body zone; scale row spacing to use all vertical space |
+| Process | Steps distributed evenly across full body zone width and height |
+| CTA / close | Large CTA text centered; One Big Idea restatement below |
+
+---
+
+## Cohesion rules (enforce across all slides)
+
+1. **Background is always `#FAFAF8`** — never change it mid-deck (except hook slide)
+2. **One accent color, used max 3–4 times total** across the whole deck
+3. **All headlines use Palatino** — no mixing with Calibri for headlines
+4. **Consistent footer** on every content slide
+5. **Consistent margin grid** — nothing breaks out of the 0.6" margins
+6. **Card/surface color is always `#F2EFE9`** — don't introduce new background colors for content blocks
+7. **No slide-specific color themes** — a "data slide" doesn't get a different palette than a "text slide"
+8. **Icons and shapes**: warm gray `#7A7874` only, never colored icons unless using the accent
+
+---
+
+## Accent usage budget (per deck)
+
+| Element | Accent allowed? |
+|---|---|
+| Hook slide background | Yes (optional) |
+| Most important stat number | Yes — one slide only |
+| CTA / close slide text | Yes |
+| Section divider line | Yes — max one per section |
+| Body text | Never |
+| Headline text | Never |
+| Icons | Never |
+| Borders/dividers (general) | Never — use `#D6D1C8` |
+| Chart fill (primary bar/line) | Yes — one series only |
+
+Total accent uses per deck: **4–6 maximum**. If you're using it more, pull back.
