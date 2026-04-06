@@ -7,8 +7,8 @@ This skill produces presentations that are clear, cohesive, and visually calm. I
 
 ## Key Features
 * **Story-Driven Structure**: Organizes content using proven narrative frameworks like SCR (Situation, Complication, Resolution) or SCQA.
-* [cite_start]**Warm-Neutral Theme**: Employs a cohesive design system using soft whites, warm creams, and a single carefully chosen accent color.
-* [cite_start]**Insight-Led Data Visualization**: Ensures charts make one point obvious[cite_start], stripping out visual noise and relying on clean geometric icons.
+* **Warm-Neutral Theme**: Employs a cohesive design system using soft whites, warm creams, and a single carefully chosen accent color.
+* **Insight-Led Data Visualization**: Ensures charts make one point obvious, stripping out visual noise and relying on clean geometric icons.
 * **Gate-Driven Process**: Pauses for explicit user confirmation before moving between strategy, data collection, and slide generation to prevent hallucinated content.
 
 ## How It Works
@@ -20,7 +20,7 @@ The skill operates in three mandatory phases:
 ## Core Design Principles
 * **Cohesion**: The design supports the content quietly, ensuring every slide looks like part of the same family[cite: 5].
 * **Restraint**: Limits accent colors to a maximum of 4 to 6 uses per deck to prevent visual competition[cite: 68].
-* **Purposeful Space**: Every zone on a slide must have a declared purpose, actively avoiding accidental white space[cite: 48].
+* **Purposeful Space**: Every zone on a slide must have a declared purpose, actively avoiding accidental white space.
 
 ## Reference Files
 * `SKILL.md`: The core operational logic, gating rules, and prompt instructions.
